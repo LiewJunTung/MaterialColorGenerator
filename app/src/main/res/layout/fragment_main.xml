@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <android.support.v7.widget.RecyclerView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/main_recyclerview"
+        />
+    <FrameLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        >
+        <ImageButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/main_fab"
+            android:layout_marginRight="@dimen/fab_right_layout_margin"
+            android:layout_marginEnd="@dimen/fab_right_layout_margin"
+            android:layout_marginBottom="@dimen/fab_bottom_layout_margin"
+            android:background="@drawable/fab"
+            android:src="@drawable/abc_ic_menu_share_mtrl_alpha"
+            android:elevation="@dimen/layer_1"
+            android:stateListAnimator="@anim/fabraise"
+            />
+    </FrameLayout>
+
+</RelativeLayout>

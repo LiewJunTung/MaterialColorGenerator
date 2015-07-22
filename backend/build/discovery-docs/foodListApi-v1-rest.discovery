@@ -1,0 +1,223 @@
+{
+ "kind": "discovery#restDescription",
+ "etag": "\"u_zXkMELIlX4ktyNbM2XKD4vK8E/7GVr9ddozBD9AxaO4zD8qs84NcQ\"",
+ "discoveryVersion": "v1",
+ "id": "foodListApi:v1",
+ "name": "foodListApi",
+ "version": "v1",
+ "description": "This is an API",
+ "ownerDomain": "backend.myapplication.jt.example.com",
+ "ownerName": "backend.myapplication.jt.example.com",
+ "icons": {
+  "x16": "http://www.google.com/images/icons/product/search-16.gif",
+  "x32": "http://www.google.com/images/icons/product/search-32.gif"
+ },
+ "protocol": "rest",
+ "baseUrl": "https://myApplicationId.appspot.com/_ah/api/foodListApi/v1/",
+ "basePath": "/_ah/api/foodListApi/v1/",
+ "rootUrl": "https://myApplicationId.appspot.com/_ah/api/",
+ "servicePath": "foodListApi/v1/",
+ "batchPath": "batch",
+ "parameters": {
+  "alt": {
+   "type": "string",
+   "description": "Data format for the response.",
+   "default": "json",
+   "enum": [
+    "json"
+   ],
+   "enumDescriptions": [
+    "Responses with Content-Type of application/json"
+   ],
+   "location": "query"
+  },
+  "fields": {
+   "type": "string",
+   "description": "Selector specifying which fields to include in a partial response.",
+   "location": "query"
+  },
+  "key": {
+   "type": "string",
+   "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.",
+   "location": "query"
+  },
+  "oauth_token": {
+   "type": "string",
+   "description": "OAuth 2.0 token for the current user.",
+   "location": "query"
+  },
+  "prettyPrint": {
+   "type": "boolean",
+   "description": "Returns response with indentations and line breaks.",
+   "default": "true",
+   "location": "query"
+  },
+  "quotaUser": {
+   "type": "string",
+   "description": "Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.",
+   "location": "query"
+  },
+  "userIp": {
+   "type": "string",
+   "description": "IP address of the site where the request originates. Use this if you want to enforce per-user limits.",
+   "location": "query"
+  }
+ },
+ "auth": {
+  "oauth2": {
+   "scopes": {
+    "https://www.googleapis.com/auth/userinfo.email": {
+     "description": "View your email address"
+    }
+   }
+  }
+ },
+ "schemas": {
+  "Food": {
+   "id": "Food",
+   "type": "object",
+   "properties": {
+    "id": {
+     "type": "integer",
+     "format": "int32"
+    },
+    "name": {
+     "type": "string"
+    },
+    "picture": {
+     "type": "string"
+    }
+   }
+  },
+  "FoodCollection": {
+   "id": "FoodCollection",
+   "type": "object",
+   "properties": {
+    "items": {
+     "type": "array",
+     "items": {
+      "$ref": "Food"
+     }
+    }
+   }
+  }
+ },
+ "methods": {
+  "deleteFood": {
+   "id": "foodListApi.deleteFood",
+   "path": "foodlist/{id}",
+   "httpMethod": "DELETE",
+   "parameters": {
+    "id": {
+     "type": "integer",
+     "required": true,
+     "format": "int32",
+     "location": "path"
+    }
+   },
+   "parameterOrder": [
+    "id"
+   ],
+   "response": {
+    "$ref": "Food"
+   },
+   "scopes": [
+    "https://www.googleapis.com/auth/userinfo.email"
+   ]
+  },
+  "getAllFood": {
+   "id": "foodListApi.getAllFood",
+   "path": "foodlist",
+   "httpMethod": "GET",
+   "response": {
+    "$ref": "FoodCollection"
+   },
+   "scopes": [
+    "https://www.googleapis.com/auth/userinfo.email"
+   ]
+  },
+  "getFood": {
+   "id": "foodListApi.getFood",
+   "path": "foodlist/{id}",
+   "httpMethod": "GET",
+   "parameters": {
+    "id": {
+     "type": "integer",
+     "required": true,
+     "format": "int32",
+     "location": "path"
+    }
+   },
+   "parameterOrder": [
+    "id"
+   ],
+   "response": {
+    "$ref": "Food"
+   },
+   "scopes": [
+    "https://www.googleapis.com/auth/userinfo.email"
+   ]
+  },
+  "newFood": {
+   "id": "foodListApi.newFood",
+   "path": "foodlist/{name}/{picture}",
+   "httpMethod": "POST",
+   "parameters": {
+    "name": {
+     "type": "string",
+     "required": true,
+     "location": "path"
+    },
+    "picture": {
+     "type": "string",
+     "required": true,
+     "location": "path"
+    }
+   },
+   "parameterOrder": [
+    "name",
+    "picture"
+   ],
+   "response": {
+    "$ref": "Food"
+   },
+   "scopes": [
+    "https://www.googleapis.com/auth/userinfo.email"
+   ]
+  },
+  "updateFood": {
+   "id": "foodListApi.updateFood",
+   "path": "foodlist/{id}/{name}/{picture}",
+   "httpMethod": "PUT",
+   "parameters": {
+    "id": {
+     "type": "integer",
+     "required": true,
+     "format": "int32",
+     "location": "path"
+    },
+    "name": {
+     "type": "string",
+     "required": true,
+     "location": "path"
+    },
+    "picture": {
+     "type": "string",
+     "required": true,
+     "location": "path"
+    }
+   },
+   "parameterOrder": [
+    "id",
+    "name",
+    "picture"
+   ],
+   "response": {
+    "$ref": "Food"
+   },
+   "scopes": [
+    "https://www.googleapis.com/auth/userinfo.email"
+   ]
+  }
+ }
+}
